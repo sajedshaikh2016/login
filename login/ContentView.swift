@@ -8,14 +8,46 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var userName: String = String()
+    @State private var userPassword: String = String()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Login")
+                .font(.largeTitle)
+                .padding()
+            Text("Login form with SwiftUI")
+                .font(.subheadline)
+                .padding()
+            TextField("Username", text: $userName)
+                .padding()
+                .background(Color.white)
+                .border(.gray)
+                .cornerRadius(4.0)
+            SecureField("Password", text: $userPassword)
+                .padding()
+                .background(Color.white)
+                .border(.gray)
+                .cornerRadius(4.0)
+            
+            HStack {
+                Button("Login", action: {
+                    debugPrint("Login tapped")
+                })
+                
+                Spacer()
+                
+                Button("Forgot password", action: {
+                    debugPrint("Forgot password tapped")
+                })
+
+            }
+            .padding()
         }
         .padding()
+        
+   
     }
 }
 
